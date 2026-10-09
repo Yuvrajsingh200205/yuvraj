@@ -1,0 +1,327 @@
+.work {
+  background: var(--ink);
+  color: var(--white);
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+}
+
+/* ── Browser frame ── */
+.browser {
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--ink-2);
+  border: 1px solid var(--line-dark);
+  text-decoration: none;
+  transition:
+    transform 0.5s var(--ease),
+    border-color 0.3s;
+}
+
+.browser:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.browser-url {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  color: var(--slate-light);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 0.2rem 0.6rem;
+}
+
+.browser-view {
+  display: block;
+  aspect-ratio: 16 / 9.5;
+  overflow: hidden;
+}
+
+.browser-view img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 1.2s var(--ease);
+}
+
+.browser:hover .browser-view img {
+  transform: scale(1.035);
+}
+
+/* ── Case study ── */
+.case {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.case-large {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  margin-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.case-body {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+}
+
+.case h3,
+.crm h3 {
+  font-size: var(--t-lg);
+  letter-spacing: -0.03em;
+}
+
+.case-large h3 {
+  font-size: var(--t-xl);
+}
+
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  align-items: center;
+  font-size: var(--t-sm);
+  color: var(--slate-light);
+}
+
+.case-kind {
+  color: var(--signal);
+  font-weight: 600;
+}
+
+.case-summary {
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 36rem;
+}
+
+.case-built {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.case-built li {
+  padding-left: 1.2rem;
+  position: relative;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.case-built li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 8px;
+  height: 2px;
+  background: var(--cobalt-bright);
+}
+
+.chips {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chips li {
+  font-size: 0.82rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 42px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.case-link:hover {
+  border-color: var(--white);
+}
+
+.case-link.primary {
+  background: var(--white);
+  color: var(--ink);
+  border-color: var(--white);
+}
+
+.case-link.primary:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+}
+
+.case-note {
+  font-size: var(--t-sm);
+  color: var(--slate-light);
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.5rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+}
+
+/* ── CRM module board ── */
+.crm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  margin-bottom: clamp(3.5rem, 8vw, 6rem);
+  border-radius: 22px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 24px 24px,
+    #13208a;
+  border: 1px solid rgba(91, 116, 255, 0.4);
+}
+
+.crm-intro {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.crm-board {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.crm-stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.crm-stages button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem 0.5rem 0.55rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.crm-stages button.is-active {
+  color: var(--ink);
+}
+
+.crm-pill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 999px;
+  background: var(--white);
+}
+
+.crm-step {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.crm-stages button.is-active .crm-step {
+  background: var(--cobalt);
+  color: var(--white);
+}
+
+.crm-modules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.crm-module {
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  transition:
+    background-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+
+.crm-module.is-on {
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--white);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .case-large,
+  .crm {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+}

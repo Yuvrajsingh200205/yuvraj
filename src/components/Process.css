@@ -1,0 +1,110 @@
+.process {
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+  background: var(--white);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  padding-top: 1.5rem;
+}
+
+/* the dashed connector between steps — a sequence, drawn as one */
+.step::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  left: 48px;
+  right: calc(-1 * clamp(1.25rem, 3vw, 2rem));
+  height: 0;
+  border-top: 2px dashed rgba(35, 64, 217, 0.35);
+  transform: translateY(19px);
+}
+
+.step:last-child::before {
+  display: none;
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--cobalt);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 650;
+  margin-bottom: 0.75rem;
+}
+
+.step h3 {
+  font-size: var(--t-lg);
+}
+
+.step-time {
+  font-weight: 600;
+  font-size: var(--t-sm);
+  color: var(--cobalt);
+}
+
+.step p:last-child {
+  color: var(--slate);
+}
+
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2.5rem;
+  }
+  .step:nth-child(2)::before {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .step {
+    grid-template-columns: 40px 1fr;
+    column-gap: 1.1rem;
+    padding: 0 0 2rem;
+  }
+  .step > * {
+    grid-column: 2;
+  }
+  .step-num {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin: 0;
+  }
+  .step::before,
+  .step:nth-child(2)::before {
+    display: block;
+    top: 44px;
+    bottom: 4px;
+    left: 19px;
+    right: auto;
+    height: auto;
+    border-top: 0;
+    border-left: 2px dashed rgba(35, 64, 217, 0.35);
+    transform: none;
+  }
+  .step:last-child::before {
+    display: none;
+  }
+}

@@ -1,0 +1,209 @@
+.feed {
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+}
+
+.feed-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.feed-head .section-head {
+  margin-bottom: 0;
+}
+
+.feed-source {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 14px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.feed-source:hover {
+  border-color: var(--ink);
+}
+
+.feed-source > span {
+  display: grid;
+  line-height: 1.35;
+}
+
+.feed-source strong {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.feed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+
+.feed-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.feed-filters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 42px;
+  padding: 0.45rem 0.6rem 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.feed-filters button:hover {
+  border-color: var(--ink);
+}
+
+.feed-filters button.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+.feed-count {
+  min-width: 26px;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(14, 23, 38, 0.08);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.feed-filters button.is-active .feed-count {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.feed-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1.5px solid var(--ink);
+}
+
+.feed-list > li {
+  border-bottom: 1px solid var(--line);
+}
+
+.repo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.15rem 0.25rem;
+  text-decoration: none;
+  transition: background-color 0.2s, padding 0.35s var(--ease);
+}
+
+.repo:hover {
+  background: var(--white);
+  padding-inline: 1rem;
+}
+
+.repo-main {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.repo-title {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.2rem;
+  letter-spacing: -0.015em;
+}
+
+.repo-text {
+  color: var(--slate);
+  font-size: 0.95rem;
+}
+
+.repo-meta {
+  display: grid;
+  justify-items: end;
+  gap: 0.15rem;
+  font-size: 0.85rem;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+.repo-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.repo-lang i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.repo-go {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--line);
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.repo:hover .repo-go {
+  background: var(--cobalt);
+  border-color: var(--cobalt);
+  color: var(--white);
+}
+
+.feed-more {
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 640px) {
+  .repo {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.6rem 1rem;
+  }
+  .repo-meta {
+    grid-column: 1;
+    grid-row: 2;
+    justify-items: start;
+    display: flex;
+    gap: 1rem;
+  }
+  .repo-go {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  .feed-source {
+    width: 100%;
+  }
+}

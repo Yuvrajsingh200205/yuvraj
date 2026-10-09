@@ -1,0 +1,81 @@
+.footer {
+  background: var(--ink);
+  color: var(--white);
+  border-top: 1px solid var(--line-dark);
+  padding-block: 2.5rem 1.5rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-brand div {
+  display: grid;
+  line-height: 1.3;
+}
+
+.footer-brand strong {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.1rem;
+}
+
+.footer-brand span,
+.footer-base {
+  color: var(--slate-light);
+  font-size: var(--t-sm);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+}
+
+.footer-links a,
+.footer-base a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover,
+.footer-base a:hover,
+.footer-social a:hover {
+  color: var(--white);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-social a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-dark);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-dark);
+}

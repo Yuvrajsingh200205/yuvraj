@@ -1,0 +1,217 @@
+.bp {
+  margin: 0;
+  border-radius: 22px;
+  background: var(--ink);
+  padding: clamp(6px, 1vw, 10px);
+  box-shadow:
+    0 40px 80px -40px rgba(14, 23, 38, 0.55),
+    0 2px 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.bp-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  background: #14248a;
+}
+
+.bp-layers,
+.bp-blueprint,
+.bp-real {
+  position: absolute;
+  inset: 0;
+}
+
+.bp-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  pointer-events: none;
+}
+
+/* Blueprint: invert the screenshot to white lines, then lay cobalt over the dark */
+.bp-blueprint img {
+  filter: grayscale(1) invert(1) contrast(1.45) brightness(0.92);
+}
+
+.bp-tint {
+  position: absolute;
+  inset: 0;
+  background: #1a2fa8;
+  mix-blend-mode: screen;
+}
+
+.bp-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    16px 16px,
+    16px 16px;
+}
+
+.bp-real {
+  will-change: clip-path;
+}
+
+.bp-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--white);
+  box-shadow: 0 0 0 1px rgba(14, 23, 38, 0.25);
+  outline: none;
+}
+
+.bp-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px -8px rgba(14, 23, 38, 0.5);
+  transition: transform 0.25s var(--ease);
+}
+
+.bp-frame:hover .bp-knob,
+.bp-frame.is-dragging .bp-knob {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.bp-handle:focus-visible .bp-knob {
+  outline: 3px solid var(--signal);
+  outline-offset: 3px;
+}
+
+.bp-tag {
+  position: absolute;
+  top: 14px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.bp-tag-left {
+  left: 14px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bp-tag-right {
+  right: 14px;
+  color: var(--ink);
+  background: var(--white);
+  box-shadow: 0 4px 14px -6px rgba(14, 23, 38, 0.4);
+}
+
+/* ── Project switcher ── */
+.bp-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0.5rem 0.4rem;
+  color: var(--white);
+}
+
+.bp-tabs {
+  display: flex;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.bp-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.bp-tabs button {
+  display: grid;
+  text-align: left;
+  gap: 0.05rem;
+  flex: none;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.bp-tabs button:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bp-tabs button.is-active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.bp-tab-kind {
+  font-size: 0.75rem;
+  color: var(--slate-light);
+}
+
+.bp-tab-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.bp-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: none;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: background-color 0.2s;
+}
+
+.bp-open:hover {
+  background: var(--signal);
+}
+
+@media (max-width: 760px) {
+  .bp-frame {
+    aspect-ratio: 4 / 3.4;
+  }
+  .bp-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .bp-open {
+    justify-content: center;
+  }
+}

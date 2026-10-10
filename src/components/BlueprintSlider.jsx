@@ -81,7 +81,7 @@ export default function BlueprintSlider() {
             <div className="bp-real" style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
               <img
                 src={project.image}
-                alt={`${project.title} — live site screenshot`}
+                alt={`${project.title} live site screenshot`}
                 draggable="false"
               />
             </div>

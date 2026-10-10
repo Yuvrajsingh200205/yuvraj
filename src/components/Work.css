@@ -325,3 +325,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+.work-more {
+  margin-top: clamp(2rem, 5vw, 3rem);
+}
+
+.work-more a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--white);
+  font-weight: 600;
+  text-decoration-color: var(--cobalt-bright);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+  transition: color 0.25s var(--ease);
+}
+
+.work-more a:hover {
+  color: var(--cobalt-bright);
+}
+
+.work-more svg {
+  flex: none;
+  color: var(--cobalt-bright);
+}

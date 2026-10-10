@@ -69,13 +69,23 @@ function CaseStudy({ project, large }) {
   );
 }
 
-export default function Work() {
+/**
+ * `limit` caps how many of the smaller case studies show, for the
+ * home page. Left out, every project renders and the CRM walkthrough
+ * comes with it: that is the dedicated work page.
+ */
+export default function Work({ limit, heading = "h2" }) {
+  const H = heading;
   const [lead, ...rest] = featured;
+  const full = typeof limit !== "number";
+  const shown = full ? rest : rest.slice(0, limit);
+  const notShown = rest.length - shown.length;
+
   return (
     <section className="work dark" id="work">
       <div className="wrap">
         <div className="section-head">
-          <h2>Selected work</h2>
+          <H>Selected work</H>
           <p>
             Live sites you can click through right now, and the code behind them. Nothing
             here is a mock-up.
@@ -83,13 +93,23 @@ export default function Work() {
         </div>
 
         <CaseStudy project={lead} large />
-        <CrmShowcase />
+        {full && <CrmShowcase />}
 
         <div className="case-grid">
-          {rest.map((p) => (
+          {shown.map((p) => (
             <CaseStudy key={p.id} project={p} />
           ))}
         </div>
+
+        {notShown > 0 && (
+          <p className="work-more">
+            <a href="/work/">
+              See all {featured.length} projects, with the CRM walkthrough and the full
+              GitHub list
+              <Icon name="external" size={16} />
+            </a>
+          </p>
+        )}
       </div>
     </section>
   );

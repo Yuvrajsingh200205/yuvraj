@@ -29,7 +29,8 @@ const promises = [
   "Progress is a link you can open, not a status email.",
 ];
 
-export default function About() {
+export default function About({ heading = "h2" }) {
+  const H = heading;
   const { founder } = site;
   return (
     <section className="about" id="about">
@@ -43,7 +44,7 @@ export default function About() {
         </div>
 
         <div className="about-text">
-          <h2>Hi, I'm {founder.name.split(" ")[0]}.</h2>
+          <H>Hi, I'm {founder.name.split(" ")[0]}.</H>
           <p className="about-lead">
             I'm a full-stack developer from {founder.location}, trained in computer science
             (B.Tech CSE, Delhi Technical Campus). Since early 2024 I've been building

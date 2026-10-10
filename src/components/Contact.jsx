@@ -13,15 +13,16 @@ function buildMessage(f) {
     "",
     f.message,
     "",
-    `Looking for: ${f.need.join(", ") || "—"}`,
-    `Budget: ${f.budget || "—"}`,
+    `Looking for: ${f.need.join(", ") || "Not specified"}`,
+    `Budget: ${f.budget || "Not specified"}`,
     "",
     `${f.name}${f.company ? `, ${f.company}` : ""}`,
     f.email,
   ].join("\n");
 }
 
-export default function Contact() {
+export default function Contact({ heading = "h2" }) {
+  const H = heading;
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -54,7 +55,7 @@ export default function Contact() {
   const onSubmit = (ev) => {
     ev.preventDefault();
     if (!validate()) return;
-    const subject = `New project: ${form.need.join(", ") || "enquiry"} — ${form.name}`;
+    const subject = `New project: ${form.need.join(", ") || "enquiry"} from ${form.name}`;
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(buildMessage(form))}`;
@@ -71,7 +72,7 @@ export default function Contact() {
     <section className="contact dark" id="contact">
       <div className="wrap contact-grid">
         <div className="contact-intro">
-          <h2>Tell me what you're building.</h2>
+          <H>Tell me what you're building.</H>
           <p>
             A few lines is enough. {responseTime} If it's not something I can do well, I'll
             say so and point you to someone who can.

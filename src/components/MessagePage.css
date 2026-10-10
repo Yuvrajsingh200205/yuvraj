@@ -1,0 +1,84 @@
+.msg {
+  padding: clamp(4rem, 10vw, 7.5rem) 0 clamp(3rem, 7vw, 5rem);
+}
+
+.msg-wrap {
+  max-width: 48rem;
+}
+
+.msg-eyebrow {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cobalt);
+  margin-bottom: 1rem;
+}
+
+.msg h1 {
+  font-size: var(--t-xl);
+}
+
+.msg-body {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.9rem;
+  max-width: 38rem;
+}
+
+.msg-body p {
+  color: var(--slate);
+  font-size: var(--t-md);
+  line-height: 1.55;
+}
+
+.msg-body a {
+  color: var(--cobalt);
+  text-underline-offset: 3px;
+}
+
+.msg-links {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.msg-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+@media (min-width: 48rem) {
+  .msg-links ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+  }
+}
+
+.msg-links a {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.25s var(--ease);
+}
+
+.msg-links a:hover {
+  color: var(--cobalt);
+}
+
+.msg-links strong {
+  font-family: var(--font-display);
+  font-size: var(--t-md);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.msg-links span {
+  font-size: var(--t-sm);
+  color: var(--slate);
+}

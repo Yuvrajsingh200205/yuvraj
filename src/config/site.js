@@ -13,7 +13,7 @@ export const site = {
   founder: {
     name: "Yuvraj Singh",
     role: "Founder & full-stack developer",
-    photo: "/work/yuvraj.webp",
+    photo: "/work/founder.webp",
     location: "Delhi NCR, India",
   },
 
